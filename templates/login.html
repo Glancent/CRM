@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div class="container col-lg-offset-4 ">
+      <form class="form-signin col-lg-3 pu " method="post"  role="form">
+        {% csrf_token %}
+        <h3 class="form-signin-heading">CRM</h3>
+        <input type="email"  name="email" class="form-control" placeholder="Email address" required autofocus>
+        <input type="password" name="password" class="form-control" placeholder="Password" required>
+        {% if errors %}
+           <span style="color: red;">{{ errors.error }}</span>
+        {% endif %}
+      <div>
+          <a href="/create/" style="margin-top: 5px;margin-bottom: 5px;display: block; text-align: right">创建用户</a>
+      </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+      </form>
+    </div>
+{% endblock %}
